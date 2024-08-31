@@ -159,12 +159,11 @@ async function run() {
 
 
 
-    // ‍************ beVolunteer data *****************
+    // ‍*************** beVolunteer data *****************
     
     app.get('/beVolunteer', async (req, res) => {
       const result = await beVolunteerCollection.find().toArray();
       res.send(result)
-      console.log(result);
     })
 
     app.get('/beVolunteer/:email', verifyToken, async (req, res) => {
