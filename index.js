@@ -110,6 +110,7 @@ async function run() {
       const result = await volunteerCollection.find(query).toArray();
       res.send(result)
     })
+
     // ‍Delete from volunteer data  
     app.delete('/volunteer/:id', async (req, res) => {
       const id = req.params.id;
@@ -144,7 +145,7 @@ async function run() {
       const result = await volunteerCollection.find(query).skip(page * size).limit(size).toArray();
       res.send(result)
     })
-    // Get all volunteer data for pagination
+    // Get all volunteer data  for pagination
     app.get('/volunteersCount', async (req, res) => {
       const search = req.query.search
       let query = {
@@ -158,11 +159,12 @@ async function run() {
 
 
 
-    // ‍************ beVolunteer data *************
+    // ‍************ beVolunteer data *****************
     
     app.get('/beVolunteer', async (req, res) => {
       const result = await beVolunteerCollection.find().toArray();
       res.send(result)
+      console.log(result);
     })
 
     app.get('/beVolunteer/:email', verifyToken, async (req, res) => {
